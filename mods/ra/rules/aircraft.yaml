@@ -133,6 +133,7 @@ MIG:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+		ValidRelationships: Ally, Neutral, Enemy
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	WithProductionIconOverlay:
@@ -209,6 +210,7 @@ YAK:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+		ValidRelationships: Ally, Neutral, Enemy
 		PipCount: 6
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
@@ -346,6 +348,7 @@ HELI:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+		ValidRelationships: Ally, Neutral, Enemy
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	WithProductionIconOverlay:
@@ -425,6 +428,7 @@ HIND:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+		ValidRelationships: Ally, Neutral, Enemy
 		PipCount: 6
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
@@ -542,6 +546,7 @@ MH60:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+		ValidRelationships: Ally, Neutral, Enemy
 		PipCount: 6
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
