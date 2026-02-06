@@ -25,6 +25,38 @@ namespace OpenRA.Mods.Common.Traits
 			if (order.Subject == null || order.Subject.Owner == null)
 				return true;
 
+			var possessable = order.Subject.TraitOrDefault<Possessable>();
+			if (order.OrderString == Possessable.PossessOrder || order.OrderString == Possessable.ReleaseOrder)
+			{
+				if (order.ExtraData != (uint)clientId)
+					return false;
+
+				var issuingClient = orderManager.LobbyInfo.ClientWithIndex(clientId);
+				if (issuingClient == null || !issuingClient.IsObserver || possessable == null)
+					return false;
+
+				if (order.OrderString == Possessable.PossessOrder)
+				{
+					if (!order.Subject.Owner.IsBot)
+						return false;
+
+					if (possessable.IsPossessed && !possessable.IsPossessedBy(clientId))
+						return false;
+				}
+				else if (!possessable.IsPossessedBy(clientId))
+					return false;
+
+				return order.Subject.AcceptsOrder(order.OrderString);
+			}
+
+			if (possessable != null && possessable.IsPossessed)
+			{
+				if (!possessable.IsPossessedBy(clientId))
+					return false;
+
+				return order.Subject.AcceptsOrder(order.OrderString);
+			}
+
 			var subjectClientId = order.Subject.Owner.ClientIndex;
 			var subjectClient = orderManager.LobbyInfo.ClientWithIndex(subjectClientId);
 

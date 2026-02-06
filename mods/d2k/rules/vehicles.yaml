@@ -144,6 +144,7 @@ trike:
 		AddToArmyValue: true
 	Selectable:
 		Class: trike
+	Possessable:
 	Health:
 		HP: 9000
 	Armor:
@@ -210,6 +211,7 @@ quad:
 		EmptyWeapon: UnitExplodeSmall
 	Selectable:
 		Class: quad
+	Possessable:
 	AttractsWorms:
 		Intensity: 470
 
@@ -230,6 +232,7 @@ siege_tank:
 		Name: actor-siege-tank.name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	Possessable:
 	Health:
 		HP: 11500
 	Armor:

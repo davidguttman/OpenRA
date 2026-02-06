@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Orders;
+using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 using OpenRA.Widgets;
 
@@ -160,7 +161,10 @@ namespace OpenRA.Mods.Common.Orders
 		/// </summary>
 		protected UnitOrderResult OrderForUnit(Actor self, Target target, CPos xy, MouseInput mi)
 		{
-			if (self.Owner != self.World.LocalPlayer)
+			var possessable = self.TraitOrDefault<Possessable>();
+			var canControlViaPossession = possessable != null && possessable.IsPossessedBy(Game.LocalClientId);
+
+			if (self.Owner != self.World.LocalPlayer && !canControlViaPossession)
 				return null;
 
 			if (self.World.IsGameOver)
