@@ -80,12 +80,9 @@ namespace OpenRA.Mods.Common.Traits
 
 		void IBot.QueueOrder(Order order)
 		{
-			if (order.Subject != null && !order.Subject.IsDead && !order.Subject.Disposed && order.Subject.IsInWorld)
-			{
-				var possessable = order.Subject.TraitOrDefault<Possessable>();
-				if (possessable != null && possessable.IsPossessed)
-					return;
-			}
+			order = FilterPossessionOrder(order);
+			if (order == null)
+				return;
 
 			orders.Enqueue(order);
 		}
@@ -108,16 +105,63 @@ namespace OpenRA.Mods.Common.Traits
 			var ordersToIssueThisTick = Math.Min((orders.Count + info.MinOrderQuotientPerTick - 1) / info.MinOrderQuotientPerTick, orders.Count);
 			for (var i = 0; i < ordersToIssueThisTick; i++)
 			{
-				var order = orders.Dequeue();
-				if (order.Subject != null && !order.Subject.IsDead && !order.Subject.Disposed && order.Subject.IsInWorld)
-				{
-					var possessable = order.Subject.TraitOrDefault<Possessable>();
-					if (possessable != null && possessable.IsPossessed)
-						continue;
-				}
+				var order = FilterPossessionOrder(orders.Dequeue());
+				if (order == null)
+					continue;
 
 				world.IssueOrder(order);
 			}
+		}
+
+		static bool IsSafeActor(Actor actor)
+		{
+			return actor != null && !actor.Disposed && !actor.IsDead && actor.IsInWorld;
+		}
+
+		static bool IsPossessedActor(Actor actor)
+		{
+			if (!IsSafeActor(actor))
+				return false;
+
+			var possessable = actor.TraitOrDefault<Possessable>();
+			return possessable != null && possessable.IsPossessed;
+		}
+
+		static Order FilterPossessionOrder(Order order)
+		{
+			if (order == null)
+				return null;
+
+			if (order.Subject != null)
+			{
+				if (!IsSafeActor(order.Subject) || IsPossessedActor(order.Subject))
+					return null;
+			}
+
+			if (order.GroupedActors != null)
+			{
+				var filtered = order.GroupedActors
+					.Where(actor => IsSafeActor(actor) && !IsPossessedActor(actor))
+					.ToArray();
+
+				if (filtered.Length == 0)
+					return null;
+
+				if (filtered.Length != order.GroupedActors.Length)
+				{
+					order = new Order(order.OrderString, order.Subject, order.Target, order.Queued, order.ExtraActors, filtered)
+					{
+						TargetString = order.TargetString,
+						ExtraLocation = order.ExtraLocation,
+						ExtraData = order.ExtraData,
+						IsImmediate = order.IsImmediate,
+						Type = order.Type,
+						SuppressVisualFeedback = order.SuppressVisualFeedback
+					};
+				}
+			}
+
+			return order;
 		}
 
 		void INotifyDamage.Damaged(Actor self, AttackInfo e)
