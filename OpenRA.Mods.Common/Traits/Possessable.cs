@@ -66,7 +66,7 @@ namespace OpenRA.Mods.Common.Traits
 
 		readonly Actor self;
 		readonly PossessableInfo info;
-		readonly IHealth health;
+		IHealth health;
 		readonly List<int> rankBonusTokens = new();
 		ExternalCondition externalCondition;
 		int conditionToken = Actor.InvalidConditionToken;
@@ -101,6 +101,7 @@ namespace OpenRA.Mods.Common.Traits
 
 		void INotifyCreated.Created(Actor actor)
 		{
+			health ??= actor.TraitOrDefault<IHealth>();
 			externalCondition = actor.TraitsImplementing<ExternalCondition>()
 				.FirstOrDefault(t => t.Info.Condition == PossessedCondition);
 
