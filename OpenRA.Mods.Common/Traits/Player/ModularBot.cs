@@ -80,7 +80,7 @@ namespace OpenRA.Mods.Common.Traits
 
 		void IBot.QueueOrder(Order order)
 		{
-			if (order.Subject != null)
+			if (order.Subject != null && !order.Subject.IsDead && !order.Subject.Disposed && order.Subject.IsInWorld)
 			{
 				var possessable = order.Subject.TraitOrDefault<Possessable>();
 				if (possessable != null && possessable.IsPossessed)
@@ -107,7 +107,17 @@ namespace OpenRA.Mods.Common.Traits
 
 			var ordersToIssueThisTick = Math.Min((orders.Count + info.MinOrderQuotientPerTick - 1) / info.MinOrderQuotientPerTick, orders.Count);
 			for (var i = 0; i < ordersToIssueThisTick; i++)
-				world.IssueOrder(orders.Dequeue());
+			{
+				var order = orders.Dequeue();
+				if (order.Subject != null && !order.Subject.IsDead && !order.Subject.Disposed && order.Subject.IsInWorld)
+				{
+					var possessable = order.Subject.TraitOrDefault<Possessable>();
+					if (possessable != null && possessable.IsPossessed)
+						continue;
+				}
+
+				world.IssueOrder(order);
+			}
 		}
 
 		void INotifyDamage.Damaged(Actor self, AttackInfo e)
