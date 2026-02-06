@@ -621,6 +621,18 @@
 		UseLocation: true
 	Selectable:
 		Bounds: 1024, 1024
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Aircraft:
 		AirborneCondition: airborne
 	Targetable@GROUND:
