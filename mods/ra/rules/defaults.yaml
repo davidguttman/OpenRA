@@ -177,6 +177,7 @@
 ^AutoTargetGround:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Ship, Underwater, Defense, Mine
@@ -197,6 +198,7 @@
 
 ^AutoTargetAir:
 	AutoTarget:
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: AirborneActor
 		InvalidTargets: NoAutoTarget
@@ -204,6 +206,7 @@
 ^AutoTargetAll:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Ship, Underwater, AirborneActor, Defense, Mine
@@ -251,6 +254,18 @@
 		TurnSpeed: 20
 	Selectable:
 		Bounds: 1024, 1024
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable:
 		RequiresCondition: !parachute
 		TargetTypes: GroundActor, Vehicle
@@ -516,6 +531,18 @@
 		Locomotor: naval
 	Selectable:
 		Bounds: 1024, 1024
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable:
 		TargetTypes: WaterActor, Ship
 	Targetable@REPAIR:

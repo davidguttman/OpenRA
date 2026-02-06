@@ -32,6 +32,34 @@ options-starting-units =
     .light-support = Light Support
     .heavy-support = Heavy Support
 
+dropdown-possession-regen =
+    .label = Possession Regen
+    .description = Regeneration rate for possessed vehicles
+
+options-possession-regen =
+    .off = Off
+    .two-min = 2 min (full)
+    .one-min = 1 min (full)
+    .half-min = 30 sec (full)
+
+dropdown-possession-xp =
+    .label = Possession XP
+    .description = Experience multiplier for possessed vehicles
+
+options-possession-xp =
+    .x100 = 100%
+    .x150 = 150%
+    .x200 = 200%
+    .x300 = 300%
+
+dropdown-possession-rank =
+    .label = Possession Rank Bonus
+    .description = Bonus rank while possessed
+
+options-possession-rank =
+    .none = None
+    .veteran = +1 rank
+
 resource-minerals = Valuable Minerals
 
 map-generator-classic = Map Generator
