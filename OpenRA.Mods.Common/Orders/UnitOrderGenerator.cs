@@ -161,6 +161,9 @@ namespace OpenRA.Mods.Common.Orders
 		/// </summary>
 		protected UnitOrderResult OrderForUnit(Actor self, Target target, CPos xy, MouseInput mi)
 		{
+			if (self.IsDead || self.Disposed || !self.IsInWorld)
+				return null;
+
 			var possessable = self.TraitOrDefault<Possessable>();
 			var canControlViaPossession = possessable != null && possessable.IsPossessedBy(Game.LocalClientId);
 
