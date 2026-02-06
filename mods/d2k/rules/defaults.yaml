@@ -421,6 +421,18 @@
 	Selectable:
 		Bounds: 768, 768, 0, -128
 		DecorationBounds: 384, 640, 0, -128
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable:
 		TargetTypes: Ground, Infantry
 	QuantizeFacingsFromSequence:

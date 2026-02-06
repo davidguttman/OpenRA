@@ -357,6 +357,18 @@
 	Selectable:
 		Bounds: 768, 853, 0, -256
 		DecorationBounds: 512, 768, 0, -341
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable:
 		RequiresCondition: !parachute
 		TargetTypes: GroundActor, Infantry, Disguise
