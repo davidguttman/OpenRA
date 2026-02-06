@@ -155,12 +155,11 @@ Container@OBSERVER_WIDGETS:
 			Children:
 				LogicKeyListener@MODIFIER_OVERRIDES:
 				WorldButton@ATTACK_MOVE:
-					Logic: AddFactionSuffixLogic
 					X: 0
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: AttackMove
 					DisableKeySound: true
 					TooltipText: button-command-bar-attack-move.tooltip
@@ -174,18 +173,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: attack-move
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@FORCE_MOVE:
-					Logic: AddFactionSuffixLogic
 					X: 39
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					DisableKeySound: true
 					TooltipText: button-command-bar-force-move.tooltip
 					TooltipDesc: button-command-bar-force-move.tooltipdesc
@@ -198,18 +195,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: force-move
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@FORCE_ATTACK:
-					Logic: AddFactionSuffixLogic
 					X: 78
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					DisableKeySound: true
 					TooltipText: button-command-bar-force-attack.tooltip
 					TooltipDesc: button-command-bar-force-attack.tooltipdesc
@@ -222,18 +217,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: force-attack
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@GUARD:
-					Logic: AddFactionSuffixLogic
 					X: 117
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: Guard
 					DisableKeySound: true
 					TooltipText: button-command-bar-guard.tooltip
@@ -247,18 +240,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: guard
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@DEPLOY:
-					Logic: AddFactionSuffixLogic
 					X: 156
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: Deploy
 					DisableKeyRepeat: true
 					DisableKeySound: true
@@ -273,18 +264,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: deploy
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@SCATTER:
-					Logic: AddFactionSuffixLogic
 					X: 195
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: Scatter
 					DisableKeyRepeat: true
 					DisableKeySound: true
@@ -299,18 +288,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: scatter
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@STOP:
-					Logic: AddFactionSuffixLogic
 					X: 234
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: Stop
 					DisableKeyRepeat: true
 					DisableKeySound: true
@@ -325,18 +312,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: command-icons
 							ImageName: stop
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@QUEUE_ORDERS:
-					Logic: AddFactionSuffixLogic
 					X: 273
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					DisableKeySound: true
 					TooltipText: button-command-bar-queue-orders.tooltip
 					TooltipDesc: button-command-bar-queue-orders.tooltipdesc
@@ -356,12 +341,11 @@ Container@OBSERVER_WIDGETS:
 			Height: 26
 			Children:
 				WorldButton@STANCE_ATTACKANYTHING:
-					Logic: AddFactionSuffixLogic
 					X: 0
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: StanceAttackAnything
 					DisableKeyRepeat: true
 					DisableKeySound: true
@@ -376,18 +360,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: stance-icons
 							ImageName: attack-anything
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@STANCE_DEFEND:
-					Logic: AddFactionSuffixLogic
 					X: 39
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: StanceDefend
 					DisableKeyRepeat: true
 					DisableKeySound: true
@@ -402,18 +384,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: stance-icons
 							ImageName: defend
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@STANCE_RETURNFIRE:
-					Logic: AddFactionSuffixLogic
 					X: 78
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: StanceReturnFire
 					DisableKeyRepeat: true
 					DisableKeySound: true
@@ -428,18 +408,16 @@ Container@OBSERVER_WIDGETS:
 							ImageCollection: stance-icons
 							ImageName: return-fire
 						Image@SEPARATOR:
-							Logic: AddFactionSuffixLogic
 							X: 38
 							Y: 2
-							ImageCollection: chrome-button
+							ImageCollection: chrome-button-gdi
 							ImageName: separator
 				WorldButton@STANCE_HOLDFIRE:
-					Logic: AddFactionSuffixLogic
 					X: 117
 					Y: 0
 					Width: 38
 					Height: 26
-					Background: chrome-button-background
+					Background: chrome-button-background-gdi
 					Key: StanceHoldFire
 					DisableKeyRepeat: true
 					DisableKeySound: true
