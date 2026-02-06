@@ -6,3 +6,5 @@ hotkey-description-productiontypesupport = Support Tab
 hotkey-description-productiontypeinfantry = Infantry Tab
 hotkey-description-productiontypevehicle = Vehicle Tab
 hotkey-description-productiontypeaircraft = Aircraft Tab
+hotkey-description-possessunit = Possess unit
+hotkey-description-releasepossession = Release possession

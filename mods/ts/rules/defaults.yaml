@@ -141,6 +141,7 @@
 ^AutoTargetGround:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Support
@@ -161,6 +162,7 @@
 
 ^AutoTargetAir:
 	AutoTarget:
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Air
 		InvalidTargets: NoAutoTarget
@@ -168,6 +170,7 @@
 ^AutoTargetAll:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Support
@@ -577,6 +580,18 @@
 	Selectable:
 		DecorationBounds: 452, 1387, 0, -543
 		Bounds: 724, 1448, 0, -543
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Voiced:
 		VoiceSet: Infantry
 	Targetable:
@@ -789,6 +804,18 @@
 		TerrainOrientationAdjustmentMargin: 256
 	Selectable:
 		Bounds: 1206, 1448
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Voiced:
 		VoiceSet: Vehicle
 	Targetable:
@@ -902,6 +929,18 @@
 		Action: Kill
 	AppearsOnRadar:
 		UseLocation: true
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable@GROUND:
 		TargetTypes: Ground, Vehicle
 		RequiresCondition: !airborne

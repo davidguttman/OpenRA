@@ -23,6 +23,253 @@ Container@OBSERVER_WIDGETS:
 					Align: Right
 					Text: label-mute-indicator
 					Contrast: true
+		Image@COMMAND_BAR_BACKGROUND:
+			Logic: AddFactionSuffixLogic
+			X: 5
+			Y: WINDOW_HEIGHT - HEIGHT - 5
+			Width: 449
+			Height: 51
+			ImageCollection: sidebar
+			ImageName: background-commandbar
+			ClickThrough: False
+		Container@COMMAND_BAR:
+			Logic: CommandBarLogic
+				HighlightOnButtonPress: True
+			X: 19
+			Y: WINDOW_HEIGHT - HEIGHT - 20
+			Width: 275
+			Height: 26
+			Children:
+				LogicKeyListener@MODIFIER_OVERRIDES:
+				Button@ATTACK_MOVE:
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: AttackMove
+					DisableKeySound: true
+					TooltipText: button-command-bar-attack-move.tooltip
+					TooltipDesc: button-command-bar-attack-move.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: attack-move
+				Button@FORCE_MOVE:
+					X: 35
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					DisableKeySound: true
+					TooltipText: button-command-bar-force-move.tooltip
+					TooltipDesc: button-command-bar-force-move.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: force-move
+				Button@FORCE_ATTACK:
+					X: 70
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					DisableKeySound: true
+					TooltipText: button-command-bar-force-attack.tooltip
+					TooltipDesc: button-command-bar-force-attack.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: force-attack
+				Button@GUARD:
+					X: 105
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: Guard
+					DisableKeySound: true
+					TooltipText: button-command-bar-guard.tooltip
+					TooltipDesc: button-command-bar-guard.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: guard
+				Button@DEPLOY:
+					X: 140
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: Deploy
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-deploy.tooltip
+					TooltipDesc: button-command-bar-deploy.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: deploy
+				Button@SCATTER:
+					X: 175
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: Scatter
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-scatter.tooltip
+					TooltipDesc: button-command-bar-scatter.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: scatter
+				Button@STOP:
+					X: 210
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: Stop
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-stop.tooltip
+					TooltipDesc: button-command-bar-stop.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: stop
+				Button@QUEUE_ORDERS:
+					X: 245
+					Width: 35
+					Height: 32
+					VisualHeight: 0
+					Background:
+					DisableKeySound: true
+					TooltipText: button-command-bar-queue-orders.tooltip
+					TooltipDesc: button-command-bar-queue-orders.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 5
+							Y: 3
+							ImageCollection: command-icons
+							ImageName: queue-orders
+		Container@STANCE_BAR:
+			Logic: StanceSelectorLogic
+			X: 306
+			Y: WINDOW_HEIGHT - HEIGHT - 20
+			Width: 138
+			Height: 26
+			Children:
+				Button@STANCE_ATTACKANYTHING:
+					Width: 28
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: StanceAttackAnything
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-attackanything.tooltip
+					TooltipDesc: button-stance-bar-attackanything.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 4
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: attack-anything
+				Button@STANCE_DEFEND:
+					X: 28
+					Width: 28
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: StanceDefend
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-defend.tooltip
+					TooltipDesc: button-stance-bar-defend.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 4
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: defend
+				Button@STANCE_RETURNFIRE:
+					X: 56
+					Width: 28
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: StanceReturnFire
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-returnfire.tooltip
+					TooltipDesc: button-stance-bar-returnfire.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 4
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: return-fire
+				Button@STANCE_HOLDFIRE:
+					X: 84
+					Width: 28
+					Height: 32
+					VisualHeight: 0
+					Background:
+					Key: StanceHoldFire
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-holdfire.tooltip
+					TooltipDesc: button-stance-bar-holdfire.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							Logic: AddFactionSuffixLogic
+							X: 4
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: hold-fire
 		MenuButton@OPTIONS_BUTTON:
 			X: 5
 			Y: 5

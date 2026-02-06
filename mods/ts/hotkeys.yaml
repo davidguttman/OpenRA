@@ -28,6 +28,16 @@ PowerDown: X
 	Types: OrderGenerator
 	Contexts: player
 
+PossessUnit: P
+	Description: hotkey-description-possessunit
+	Types: Observer
+	Contexts: spectator
+
+ReleasePossession: O
+	Description: hotkey-description-releasepossession
+	Types: Observer
+	Contexts: spectator
+
 DecreaseDepthPreviewContrast: LEFTBRACKET SHIFT
 	Description: hotkey-description-decreasedepthpreviewcontrast
 	Types: DepthDebug

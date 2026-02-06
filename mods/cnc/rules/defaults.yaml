@@ -143,6 +143,7 @@
 ^AutoTargetGround:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Support
@@ -163,6 +164,7 @@
 
 ^AutoTargetAir:
 	AutoTarget:
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Air
 		InvalidTargets: NoAutoTarget
@@ -170,6 +172,7 @@
 ^AutoTargetAll:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		RequiresCondition: !possessed
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Support
@@ -241,6 +244,18 @@
 		TurnSpeed: 20
 	Selectable:
 		Bounds: 1024, 1024
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable:
 		TargetTypes: Ground, Vehicle
 	Repairable:
@@ -294,6 +309,18 @@
 		RequiresCondition: airborne
 	Selectable:
 		Bounds: 1024, 1024
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Repairable:
 		RepairActors: hpad
 	Aircraft:
@@ -352,6 +379,18 @@
 	Selectable:
 		Bounds: 768, 768, 0, -256
 		DecorationBounds: 512, 725, 0, -256
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	Targetable:
 		TargetTypes: Ground, Infantry
 	QuantizeFacingsFromSequence:
@@ -646,6 +685,18 @@
 	ActorLostNotification:
 		TextNotification: notification-unit-lost
 	AttackMove:
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	WithShadow:
 		Offset: 43, 128, 0
 		ZOffset: -129
@@ -666,6 +717,18 @@
 		Action: Kill
 	Targetable:
 		TargetTypes: Ground, Water
+	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
+	ExternalCondition@POSSESSED:
+		Condition: possessed
 	HiddenUnderFog:
 	ActorLostNotification:
 		TextNotification: notification-unit-lost

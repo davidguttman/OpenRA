@@ -10,7 +10,7 @@ Container@INGAME_ROOT:
 				TakeScreenshotKey: TakeScreenshot
 				MuteAudioKey: ToggleMute
 		LogicKeyListener@WORLD_KEYHANDLER:
-			Logic: CycleBasesHotkeyLogic, CycleProductionActorsHotkeyLogic, CycleHarvestersHotkeyLogic, JumpToLastEventHotkeyLogic, JumpToSelectedActorsHotkeyLogic, ResetZoomHotkeyLogic, TogglePlayerStanceColorHotkeyLogic, CycleStatusBarsHotkeyLogic, PauseHotkeyLogic, SelectUnitsByTypeHotkeyLogic, SelectAllUnitsHotkeyLogic
+			Logic: CycleBasesHotkeyLogic, CycleProductionActorsHotkeyLogic, CycleHarvestersHotkeyLogic, JumpToLastEventHotkeyLogic, JumpToSelectedActorsHotkeyLogic, ResetZoomHotkeyLogic, TogglePlayerStanceColorHotkeyLogic, CycleStatusBarsHotkeyLogic, PauseHotkeyLogic, SelectUnitsByTypeHotkeyLogic, SelectAllUnitsHotkeyLogic, PossessionHotkeyLogic
 				CycleBasesKey: CycleBase
 				CycleProductionActorsKey: CycleProductionBuildings
 				CycleHarvestersKey: CycleHarvesters
@@ -137,6 +137,322 @@ Container@OBSERVER_WIDGETS:
 					Align: Right
 					Text: label-mute-indicator
 					Contrast: true
+		Image@COMMAND_BAR_BACKGROUND:
+			X: 5
+			Y: WINDOW_HEIGHT - HEIGHT - 5
+			Width: 494
+			Height: 44
+			ImageCollection: sidebar
+			ImageName: background-commandbar
+			ClickThrough: False
+		Container@COMMAND_BAR:
+			Logic: CommandBarLogic
+				HighlightOnButtonPress: True
+			X: 14
+			Y: WINDOW_HEIGHT - HEIGHT - 14
+			Width: 311
+			Height: 26
+			Children:
+				LogicKeyListener@MODIFIER_OVERRIDES:
+				WorldButton@ATTACK_MOVE:
+					Logic: AddFactionSuffixLogic
+					X: 0
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: AttackMove
+					DisableKeySound: true
+					TooltipText: button-command-bar-attack-move.tooltip
+					TooltipDesc: button-command-bar-attack-move.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: attack-move
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@FORCE_MOVE:
+					Logic: AddFactionSuffixLogic
+					X: 39
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					DisableKeySound: true
+					TooltipText: button-command-bar-force-move.tooltip
+					TooltipDesc: button-command-bar-force-move.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: force-move
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@FORCE_ATTACK:
+					Logic: AddFactionSuffixLogic
+					X: 78
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					DisableKeySound: true
+					TooltipText: button-command-bar-force-attack.tooltip
+					TooltipDesc: button-command-bar-force-attack.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: force-attack
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@GUARD:
+					Logic: AddFactionSuffixLogic
+					X: 117
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: Guard
+					DisableKeySound: true
+					TooltipText: button-command-bar-guard.tooltip
+					TooltipDesc: button-command-bar-guard.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: guard
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@DEPLOY:
+					Logic: AddFactionSuffixLogic
+					X: 156
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: Deploy
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-deploy.tooltip
+					TooltipDesc: button-command-bar-deploy.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: deploy
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@SCATTER:
+					Logic: AddFactionSuffixLogic
+					X: 195
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: Scatter
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-scatter.tooltip
+					TooltipDesc: button-command-bar-scatter.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: scatter
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@STOP:
+					Logic: AddFactionSuffixLogic
+					X: 234
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: Stop
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-stop.tooltip
+					TooltipDesc: button-command-bar-stop.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: stop
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@QUEUE_ORDERS:
+					Logic: AddFactionSuffixLogic
+					X: 273
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					DisableKeySound: true
+					TooltipText: button-command-bar-queue-orders.tooltip
+					TooltipDesc: button-command-bar-queue-orders.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_WITH_DESC_HIGHLIGHT_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 7
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: queue-orders
+		Container@STANCE_BAR:
+			Logic: StanceSelectorLogic
+			X: 335
+			Y: WINDOW_HEIGHT - HEIGHT - 14
+			Width: 155
+			Height: 26
+			Children:
+				WorldButton@STANCE_ATTACKANYTHING:
+					Logic: AddFactionSuffixLogic
+					X: 0
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: StanceAttackAnything
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-attackanything.tooltip
+					TooltipDesc: button-stance-bar-attackanything.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 11
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: attack-anything
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@STANCE_DEFEND:
+					Logic: AddFactionSuffixLogic
+					X: 39
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: StanceDefend
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-defend.tooltip
+					TooltipDesc: button-stance-bar-defend.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 11
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: defend
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@STANCE_RETURNFIRE:
+					Logic: AddFactionSuffixLogic
+					X: 78
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: StanceReturnFire
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-returnfire.tooltip
+					TooltipDesc: button-stance-bar-returnfire.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 11
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: return-fire
+						Image@SEPARATOR:
+							Logic: AddFactionSuffixLogic
+							X: 38
+							Y: 2
+							ImageCollection: chrome-button
+							ImageName: separator
+				WorldButton@STANCE_HOLDFIRE:
+					Logic: AddFactionSuffixLogic
+					X: 117
+					Y: 0
+					Width: 38
+					Height: 26
+					Background: chrome-button-background
+					Key: StanceHoldFire
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-stance-bar-holdfire.tooltip
+					TooltipDesc: button-stance-bar-holdfire.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					TooltipTemplate: BUTTON_TOOLTIP_FACTIONSUFFIX
+					Children:
+						Image@ICON:
+							X: 11
+							Y: 5
+							ImageCollection: stance-icons
+							ImageName: hold-fire
 		LogicKeyListener@OBSERVER_KEY_LISTENER:
 		MenuButton@OPTIONS_BUTTON:
 			Key: escape

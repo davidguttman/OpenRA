@@ -207,6 +207,37 @@ World:
 		ShortGameCheckboxDisplayOrder: 2
 		TechLevelDropdownDisplayOrder: 2
 		GameSpeedDropdownDisplayOrder: 1
+	ScriptLobbyDropdown@possessionRegen:
+		ID: possession-regen
+		Label: dropdown-possession-regen.label
+		Description: dropdown-possession-regen.description
+		Values:
+			'0': options-possession-regen.off
+			'30': options-possession-regen.two-min
+			'15': options-possession-regen.one-min
+			'7': options-possession-regen.half-min
+		Default: '30'
+		DisplayOrder: 8
+	ScriptLobbyDropdown@possessionXp:
+		ID: possession-xp
+		Label: dropdown-possession-xp.label
+		Description: dropdown-possession-xp.description
+		Values:
+			'100': options-possession-xp.x100
+			'150': options-possession-xp.x150
+			'200': options-possession-xp.x200
+			'300': options-possession-xp.x300
+		Default: '200'
+		DisplayOrder: 9
+	ScriptLobbyDropdown@possessionRank:
+		ID: possession-rank
+		Label: dropdown-possession-rank.label
+		Description: dropdown-possession-rank.description
+		Values:
+			'0': options-possession-rank.none
+			'1': options-possession-rank.veteran
+		Default: '1'
+		DisplayOrder: 10
 	MapStartingLocations:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
 	CreateMapPlayers:

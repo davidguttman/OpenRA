@@ -30,6 +30,34 @@ dropdown-map-creeps =
     .label = Creep Actors
     .description = Hostile forces spawn on the battlefield
 
+dropdown-possession-regen =
+    .label = Possession Regen
+    .description = Regeneration rate for possessed units
+
+options-possession-regen =
+    .off = Off
+    .two-min = 2 min (full)
+    .one-min = 1 min (full)
+    .half-min = 30 sec (full)
+
+dropdown-possession-xp =
+    .label = Possession XP
+    .description = Experience multiplier for possessed units
+
+options-possession-xp =
+    .x100 = 100%
+    .x150 = 150%
+    .x200 = 200%
+    .x300 = 300%
+
+dropdown-possession-rank =
+    .label = Possession Rank Bonus
+    .description = Bonus rank while possessed
+
+options-possession-rank =
+    .none = None
+    .veteran = +1 rank
+
 resource-tiberium = Tiberium
 
 faction-random =
