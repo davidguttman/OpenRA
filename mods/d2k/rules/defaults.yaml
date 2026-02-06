@@ -222,6 +222,7 @@
 		PauseOnCondition: notmobile
 	Selectable:
 		Bounds: 1024, 1024
+	Possessable:
 	ExternalCondition@deviatorInfluence:
 		Condition: unit-captured
 	Targetable:

@@ -9,6 +9,9 @@
  */
 #endregion
 
+using System.Collections.Generic;
+using System.Linq;
+using OpenRA.Graphics;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
@@ -22,7 +25,7 @@ namespace OpenRA.Mods.Common.Traits
 		public override object Create(ActorInitializer init) { return new Possessable(init.Self, this); }
 	}
 
-	public class Possessable : IResolveOrder, ISync, IProvideTooltipInfo, ISelectionBar
+	public class Possessable : IResolveOrder, ISync, IProvideTooltipInfo, ISelectionBar, IRenderAnnotationsWhenSelected
 	{
 		public const string PossessOrder = "Possess";
 		public const string ReleaseOrder = "Release";
@@ -104,5 +107,19 @@ namespace OpenRA.Mods.Common.Traits
 		float ISelectionBar.GetValue() => IsPossessed ? 1f : 0f;
 		Color ISelectionBar.GetColor() => info.IndicatorColor;
 		bool ISelectionBar.DisplayWhenEmpty => false;
+
+		IEnumerable<IRenderable> IRenderAnnotationsWhenSelected.RenderAnnotations(Actor actor, WorldRenderer wr)
+		{
+			if (!IsPossessed)
+				return [];
+
+			var decorations = actor.TraitsImplementing<ISelectionDecorations>().FirstEnabledTraitOrDefault();
+			if (decorations == null)
+				return [];
+
+			return decorations.RenderSelectionAnnotations(actor, wr, info.IndicatorColor);
+		}
+
+		bool IRenderAnnotationsWhenSelected.SpatiallyPartitionable => true;
 	}
 }

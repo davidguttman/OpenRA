@@ -80,6 +80,13 @@ namespace OpenRA.Mods.Common.Traits
 
 		void IBot.QueueOrder(Order order)
 		{
+			if (order.Subject != null)
+			{
+				var possessable = order.Subject.TraitOrDefault<Possessable>();
+				if (possessable != null && possessable.IsPossessed)
+					return;
+			}
+
 			orders.Enqueue(order);
 		}
 
