@@ -283,8 +283,14 @@ namespace OpenRA.Mods.Common.Widgets
 			if (selectionHash == world.Selection.Hash)
 				return;
 
+			var localClient = world.LobbyInfo.ClientWithIndex(Game.LocalClientId);
+			var allowPossessed = localClient != null && localClient.IsObserver;
+
 			selectedActors = world.Selection.Actors
-				.Where(a => a.Owner == world.LocalPlayer && a.IsInWorld && !a.IsDead)
+				.Where(a =>
+					a.IsInWorld && !a.IsDead &&
+					(a.Owner == world.LocalPlayer ||
+					(allowPossessed && a.TraitOrDefault<Possessable>()?.IsPossessedBy(Game.LocalClientId) == true)))
 				.ToArray();
 
 			attackMoveDisabled = !selectedActors.Any(a => a.Info.HasTraitInfo<AttackMoveInfo>() && a.Info.HasTraitInfo<AutoTargetInfo>());
