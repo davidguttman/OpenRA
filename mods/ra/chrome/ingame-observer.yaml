@@ -183,8 +183,90 @@ Container@OBSERVER_WIDGETS:
 						Image@ICON:
 							X: 5
 							Y: 1
+						ImageCollection: command-icons
+						ImageName: queue-orders
+		Container@STANCE_BAR:
+			Logic: StanceSelectorLogic
+			X: 294
+			Y: WINDOW_HEIGHT - HEIGHT - 14
+			Width: 138
+			Height: 26
+			Children:
+				Button@STANCE_ATTACKANYTHING:
+					Logic: AddFactionSuffixLogic
+					Width: 34
+					Height: 26
+					VisualHeight: 0
+					Background: command-button
+					Key: StanceAttackAnything
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-attack-anything.tooltip
+					TooltipDesc: button-command-bar-attack-anything.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							X: 5
+							Y: 1
 							ImageCollection: command-icons
-							ImageName: queue-orders
+							ImageName: attack-anything
+				Button@STANCE_DEFEND:
+					Logic: AddFactionSuffixLogic
+					X: 34
+					Width: 34
+					Height: 26
+					VisualHeight: 0
+					Background: command-button
+					Key: StanceDefend
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-defend.tooltip
+					TooltipDesc: button-command-bar-defend.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							X: 5
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: defend
+				Button@STANCE_RETURNFIRE:
+					Logic: AddFactionSuffixLogic
+					X: 68
+					Width: 34
+					Height: 26
+					VisualHeight: 0
+					Background: command-button
+					Key: StanceReturnFire
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-return-fire.tooltip
+					TooltipDesc: button-command-bar-return-fire.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							X: 5
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: return-fire
+				Button@STANCE_HOLDFIRE:
+					Logic: AddFactionSuffixLogic
+					X: 102
+					Width: 34
+					Height: 26
+					VisualHeight: 0
+					Background: command-button
+					Key: StanceHoldFire
+					DisableKeyRepeat: true
+					DisableKeySound: true
+					TooltipText: button-command-bar-hold-fire.tooltip
+					TooltipDesc: button-command-bar-hold-fire.tooltipdesc
+					TooltipContainer: TOOLTIP_CONTAINER
+					Children:
+						Image@ICON:
+							X: 5
+							Y: 1
+							ImageCollection: command-icons
+							ImageName: hold-fire
 		Image@SIDEBAR_BACKGROUND_TOP:
 			X: WINDOW_WIDTH - 250
 			Y: 10

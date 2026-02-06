@@ -59,8 +59,14 @@ namespace OpenRA.Mods.Common.Widgets
 			if (selectionHash == world.Selection.Hash)
 				return;
 
+			var localClient = world.LobbyInfo.ClientWithIndex(Game.LocalClientId);
+			var allowPossessed = localClient != null && localClient.IsObserver;
+
 			actorStances = world.Selection.Actors
-				.Where(a => a.Owner == world.LocalPlayer && a.IsInWorld)
+				.Where(a =>
+					a.IsInWorld && !a.IsDead &&
+					(a.Owner == world.LocalPlayer ||
+					(allowPossessed && a.TraitOrDefault<Possessable>()?.IsPossessedBy(Game.LocalClientId) == true)))
 				.SelectMany(a => a.TraitsImplementing<AutoTarget>()
 					.Where(at => at.Info.EnableStances)
 					.Select(at => new TraitPair<AutoTarget>(a, at)))
