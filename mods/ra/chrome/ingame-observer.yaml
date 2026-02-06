@@ -206,14 +206,14 @@ Container@OBSERVER_WIDGETS:
 							Key: StanceAttackAnything
 							DisableKeyRepeat: true
 							DisableKeySound: true
-							TooltipText: button-command-bar-attack-anything.tooltip
-							TooltipDesc: button-command-bar-attack-anything.tooltipdesc
+							TooltipText: button-stance-bar-attackanything.tooltip
+							TooltipDesc: button-stance-bar-attackanything.tooltipdesc
 							TooltipContainer: TOOLTIP_CONTAINER
 							Children:
 								Image@ICON:
-									X: 5
-									Y: 1
-									ImageCollection: command-icons
+									X: 9
+									Y: 5
+									ImageCollection: stance-icons
 									ImageName: attack-anything
 						Button@STANCE_DEFEND:
 							Logic: AddFactionSuffixLogic
@@ -225,14 +225,14 @@ Container@OBSERVER_WIDGETS:
 							Key: StanceDefend
 							DisableKeyRepeat: true
 							DisableKeySound: true
-							TooltipText: button-command-bar-defend.tooltip
-							TooltipDesc: button-command-bar-defend.tooltipdesc
+							TooltipText: button-stance-bar-defend.tooltip
+							TooltipDesc: button-stance-bar-defend.tooltipdesc
 							TooltipContainer: TOOLTIP_CONTAINER
 							Children:
 								Image@ICON:
-									X: 5
-									Y: 1
-									ImageCollection: command-icons
+									X: 9
+									Y: 5
+									ImageCollection: stance-icons
 									ImageName: defend
 						Button@STANCE_RETURNFIRE:
 							Logic: AddFactionSuffixLogic
@@ -244,14 +244,14 @@ Container@OBSERVER_WIDGETS:
 							Key: StanceReturnFire
 							DisableKeyRepeat: true
 							DisableKeySound: true
-							TooltipText: button-command-bar-return-fire.tooltip
-							TooltipDesc: button-command-bar-return-fire.tooltipdesc
+							TooltipText: button-stance-bar-returnfire.tooltip
+							TooltipDesc: button-stance-bar-returnfire.tooltipdesc
 							TooltipContainer: TOOLTIP_CONTAINER
 							Children:
 								Image@ICON:
-									X: 5
-									Y: 1
-									ImageCollection: command-icons
+									X: 9
+									Y: 5
+									ImageCollection: stance-icons
 									ImageName: return-fire
 						Button@STANCE_HOLDFIRE:
 							Logic: AddFactionSuffixLogic
@@ -263,14 +263,14 @@ Container@OBSERVER_WIDGETS:
 							Key: StanceHoldFire
 							DisableKeyRepeat: true
 							DisableKeySound: true
-							TooltipText: button-command-bar-hold-fire.tooltip
-							TooltipDesc: button-command-bar-hold-fire.tooltipdesc
+							TooltipText: button-stance-bar-holdfire.tooltip
+							TooltipDesc: button-stance-bar-holdfire.tooltipdesc
 							TooltipContainer: TOOLTIP_CONTAINER
 							Children:
 								Image@ICON:
-									X: 5
-									Y: 1
-									ImageCollection: command-icons
+									X: 9
+									Y: 5
+									ImageCollection: stance-icons
 									ImageName: hold-fire
 		Image@SIDEBAR_BACKGROUND_TOP:
 			X: WINDOW_WIDTH - 250
