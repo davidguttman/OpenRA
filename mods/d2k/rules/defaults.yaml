@@ -225,6 +225,15 @@
 	Selectable:
 		Bounds: 1024, 1024
 	Possessable:
+		RegenPercentageStep: 1
+		RegenDelay: 30
+		RegenStartIfBelow: 100
+		RegenOptionId: possession-regen
+		PossessedXpMultiplier: 200
+		XpMultiplierOptionId: possession-xp
+		PossessedRankBonus: 1
+		RankBonusCondition: rank-veteran
+		RankBonusOptionId: possession-rank
 	ExternalCondition@deviatorInfluence:
 		Condition: unit-captured
 	ExternalCondition@POSSESSED:
@@ -263,12 +272,6 @@
 		Range: 3c512, 6c0
 		RequiresCondition: being-demolished
 	TemporaryOwnerManager:
-	ChangesHealth@POSSESSED_REGEN:
-		RequiresCondition: possessed
-		Step: 0
-		PercentageStep: 1
-		Delay: 250
-		StartIfBelow: 100
 	MustBeDestroyed:
 	Voiced:
 		VoiceSet: VehicleVoice
