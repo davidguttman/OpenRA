@@ -22,6 +22,8 @@ Container@INGAME_ROOT:
 				PauseKey: Pause
 				SelectAllUnitsKey: SelectAllUnits
 				SelectUnitsByTypeKey: SelectUnitsByType
+				PossessUnitKey: PossessUnit
+				ReleasePossessionKey: ReleasePossession
 		Container@WORLD_ROOT:
 			Children:
 				LogicTicker@DISCONNECT_WATCHER:
