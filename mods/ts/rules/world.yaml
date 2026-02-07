@@ -341,6 +341,17 @@ World:
 			'3': options-possession-rank.veteran3
 			'4': options-possession-rank.elite
 		Default: 1
+	ScriptLobbyDropdown@possessionSpeed:
+		ID: possession-speed
+		Label: dropdown-possession-speed.label
+		Description: dropdown-possession-speed.description
+		Values:
+			'105': options-possession-speed.x105
+			'110': options-possession-speed.x110
+			'115': options-possession-speed.x115
+			'120': options-possession-speed.x120
+			'125': options-possession-speed.x125
+		Default: 110
 	CreateMapPlayers:
 	StartingUnits@MCV:
 		Class: none

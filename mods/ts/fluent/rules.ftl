@@ -60,6 +60,17 @@ options-possession-rank =
     .veteran3 = +3 rank
     .elite = Elite
 
+dropdown-possession-speed =
+    .label = Possession Speed
+    .description = Movement speed modifier for possessed units
+
+options-possession-speed =
+    .x105 = +5%
+    .x110 = +10%
+    .x115 = +15%
+    .x120 = +20%
+    .x125 = +25%
+
 resource-veins = Veins
 resource-tiberium = Tiberium
 

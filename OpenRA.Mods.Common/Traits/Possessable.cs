@@ -52,11 +52,17 @@ namespace OpenRA.Mods.Common.Traits
 		[Desc("Optional lobby option id that overrides PossessedRankBonus.")]
 		public readonly string RankBonusOptionId = null;
 
+		[Desc("Speed modifier percentage to apply while possessed.")]
+		public readonly int PossessedSpeedModifier = 100;
+
+		[Desc("Optional lobby option id that overrides PossessedSpeedModifier.")]
+		public readonly string SpeedModifierOptionId = null;
+
 		public override object Create(ActorInitializer init) { return new Possessable(init.Self, this); }
 	}
 
 	public class Possessable : IResolveOrder, ISync, IProvideTooltipInfo, ISelectionBar, IRenderAnnotationsWhenSelected,
-		INotifyCreated, INotifyKilled, INotifyActorDisposing, ITick, INotifyDamage, IGainsExperienceModifier
+		INotifyCreated, INotifyKilled, INotifyActorDisposing, ITick, INotifyDamage, IGainsExperienceModifier, ISpeedModifier
 	{
 		public const string PossessOrder = "Possess";
 		public const string ReleaseOrder = "Release";
@@ -86,6 +92,7 @@ namespace OpenRA.Mods.Common.Traits
 		int regenDamageCooldown;
 		int possessedXpMultiplier;
 		int possessedRankBonus;
+		int possessedSpeedModifier;
 
 		public Possessable(Actor self, PossessableInfo info)
 		{
@@ -200,6 +207,7 @@ namespace OpenRA.Mods.Common.Traits
 			regenDamageCooldown = info.RegenDamageCooldown;
 			possessedXpMultiplier = info.PossessedXpMultiplier;
 			possessedRankBonus = info.PossessedRankBonus;
+			possessedSpeedModifier = info.PossessedSpeedModifier;
 
 			if (!string.IsNullOrWhiteSpace(info.RegenOptionId))
 				regenDelayTicks = ReadIntOption(world, info.RegenOptionId, regenDelayTicks);
@@ -209,6 +217,9 @@ namespace OpenRA.Mods.Common.Traits
 
 			if (!string.IsNullOrWhiteSpace(info.RankBonusOptionId))
 				possessedRankBonus = ReadIntOption(world, info.RankBonusOptionId, possessedRankBonus);
+
+			if (!string.IsNullOrWhiteSpace(info.SpeedModifierOptionId))
+				possessedSpeedModifier = ReadIntOption(world, info.SpeedModifierOptionId, possessedSpeedModifier);
 
 			if (regenDelayTicks < 0)
 				regenDelayTicks = 0;
@@ -229,6 +240,9 @@ namespace OpenRA.Mods.Common.Traits
 
 			if (possessedRankBonus < 0)
 				possessedRankBonus = 0;
+
+			if (possessedSpeedModifier <= 0)
+				possessedSpeedModifier = 100;
 		}
 
 		static int ReadIntOption(World world, string optionId, int fallback)
@@ -297,6 +311,11 @@ namespace OpenRA.Mods.Common.Traits
 		int IGainsExperienceModifier.GetGainsExperienceModifier()
 		{
 			return IsPossessed ? possessedXpMultiplier : 100;
+		}
+
+		int ISpeedModifier.GetSpeedModifier()
+		{
+			return IsPossessed ? possessedSpeedModifier : 100;
 		}
 
 		bool IProvideTooltipInfo.IsTooltipVisible(Player forPlayer) => IsPossessed;

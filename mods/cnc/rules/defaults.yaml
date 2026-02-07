@@ -254,6 +254,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable:
@@ -319,6 +321,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Repairable:
@@ -389,6 +393,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable:
@@ -695,6 +701,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	WithShadow:
@@ -727,6 +735,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	HiddenUnderFog:

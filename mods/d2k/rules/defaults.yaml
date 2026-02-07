@@ -234,6 +234,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@deviatorInfluence:
 		Condition: unit-captured
 	ExternalCondition@POSSESSED:
@@ -431,6 +433,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		PossessedSpeedModifier: 110
+		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable:
