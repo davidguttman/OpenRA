@@ -57,6 +57,9 @@ dropdown-possession-rank =
 options-possession-rank =
     .none = None
     .veteran = +1 rank
+    .veteran2 = +2 rank
+    .veteran3 = +3 rank
+    .elite = Elite
 
 resource-tiberium = Tiberium
 

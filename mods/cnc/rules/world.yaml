@@ -236,6 +236,9 @@ World:
 		Values:
 			'0': options-possession-rank.none
 			'1': options-possession-rank.veteran
+			'2': options-possession-rank.veteran2
+			'3': options-possession-rank.veteran3
+			'4': options-possession-rank.elite
 		Default: '1'
 		DisplayOrder: 10
 	MapStartingLocations:
