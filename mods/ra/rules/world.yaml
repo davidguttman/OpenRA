@@ -271,6 +271,18 @@ World:
 			'125': options-possession-speed.x125
 		Default: '110'
 		DisplayOrder: 11
+	ScriptLobbyDropdown@possessionXpGrant:
+		ID: possession-xp-grant
+		Label: dropdown-possession-xp-grant.label
+		Description: dropdown-possession-xp-grant.description
+		Values:
+			'0': options-possession-xp-grant.none
+			'1': options-possession-xp-grant.level1
+			'2': options-possession-xp-grant.level2
+			'3': options-possession-xp-grant.level3
+			'4': options-possession-xp-grant.elite
+		Default: '4'
+		DisplayOrder: 12
 	CreateMapPlayers:
 	StartingUnits@mcvonly:
 		Class: none

@@ -594,6 +594,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Voiced:
@@ -822,6 +824,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Voiced:
@@ -951,6 +955,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable@GROUND:

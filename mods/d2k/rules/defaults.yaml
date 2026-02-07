@@ -238,6 +238,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@deviatorInfluence:
 		Condition: unit-captured
 	ExternalCondition@POSSESSED:
@@ -439,6 +441,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable:

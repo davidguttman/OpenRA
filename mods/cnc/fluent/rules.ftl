@@ -72,6 +72,17 @@ options-possession-speed =
     .x120 = +20%
     .x125 = +25%
 
+dropdown-possession-xp-grant =
+    .label = Possession XP Grant
+    .description = Bonus levels granted when possession begins
+
+options-possession-xp-grant =
+    .none = None
+    .level1 = +1 level
+    .level2 = +2 levels
+    .level3 = +3 levels
+    .elite = Elite
+
 resource-tiberium = Tiberium
 
 faction-random =

@@ -258,6 +258,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable:
@@ -327,6 +329,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Repairable:
@@ -401,6 +405,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	Targetable:
@@ -711,6 +717,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	WithShadow:
@@ -747,6 +755,8 @@
 		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
+		PossessedLevelBonus: 4
+		LevelBonusOptionId: possession-xp-grant
 	ExternalCondition@POSSESSED:
 		Condition: possessed
 	HiddenUnderFog:

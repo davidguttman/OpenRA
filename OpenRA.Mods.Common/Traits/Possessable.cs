@@ -64,6 +64,12 @@ namespace OpenRA.Mods.Common.Traits
 		[Desc("Optional lobby option id that overrides PossessedSpeedModifier.")]
 		public readonly string SpeedModifierOptionId = null;
 
+		[Desc("Number of experience levels to grant when possession begins.")]
+		public readonly int PossessedLevelBonus = 0;
+
+		[Desc("Optional lobby option id that overrides PossessedLevelBonus.")]
+		public readonly string LevelBonusOptionId = null;
+
 		public override object Create(ActorInitializer init) { return new Possessable(init.Self, this); }
 	}
 
@@ -79,6 +85,7 @@ namespace OpenRA.Mods.Common.Traits
 		readonly Actor self;
 		readonly PossessableInfo info;
 		IHealth health;
+		GainsExperience gainsExperience;
 		readonly List<int> rankBonusTokens = new();
 		int eliteConditionToken = Actor.InvalidConditionToken;
 		ExternalCondition externalCondition;
@@ -100,6 +107,7 @@ namespace OpenRA.Mods.Common.Traits
 		int possessedXpMultiplier;
 		int possessedRankBonus;
 		int possessedSpeedModifier;
+		int possessedLevelBonus;
 
 		public Possessable(Actor self, PossessableInfo info)
 		{
@@ -116,6 +124,7 @@ namespace OpenRA.Mods.Common.Traits
 		void INotifyCreated.Created(Actor actor)
 		{
 			health ??= actor.TraitOrDefault<IHealth>();
+			gainsExperience ??= actor.TraitOrDefault<GainsExperience>();
 			externalCondition = actor.TraitsImplementing<ExternalCondition>()
 				.FirstOrDefault(t => t.Info.Condition == PossessedCondition);
 
@@ -172,6 +181,7 @@ namespace OpenRA.Mods.Common.Traits
 			self.CancelActivity();
 			EnsurePossessedCondition();
 			ApplyRankBonus();
+			GrantLevelBonus();
 			regenTicks = regenDelayTicks;
 			regenDamageTicks = 0;
 		}
@@ -199,6 +209,14 @@ namespace OpenRA.Mods.Common.Traits
 			{
 				eliteConditionToken = self.GrantCondition(info.RankEliteCondition);
 			}
+		}
+
+		void GrantLevelBonus()
+		{
+			if (possessedLevelBonus <= 0 || gainsExperience == null)
+				return;
+
+			gainsExperience.GiveLevels(possessedLevelBonus, true);
 		}
 
 		void ClearRankBonus()
@@ -229,6 +247,7 @@ namespace OpenRA.Mods.Common.Traits
 			possessedXpMultiplier = info.PossessedXpMultiplier;
 			possessedRankBonus = info.PossessedRankBonus;
 			possessedSpeedModifier = info.PossessedSpeedModifier;
+			possessedLevelBonus = info.PossessedLevelBonus;
 
 			if (!string.IsNullOrWhiteSpace(info.RegenOptionId))
 				regenDelayTicks = ReadIntOption(world, info.RegenOptionId, regenDelayTicks);
@@ -241,6 +260,9 @@ namespace OpenRA.Mods.Common.Traits
 
 			if (!string.IsNullOrWhiteSpace(info.SpeedModifierOptionId))
 				possessedSpeedModifier = ReadIntOption(world, info.SpeedModifierOptionId, possessedSpeedModifier);
+
+			if (!string.IsNullOrWhiteSpace(info.LevelBonusOptionId))
+				possessedLevelBonus = ReadIntOption(world, info.LevelBonusOptionId, possessedLevelBonus);
 
 			if (regenDelayTicks < 0)
 				regenDelayTicks = 0;
@@ -261,6 +283,9 @@ namespace OpenRA.Mods.Common.Traits
 
 			if (possessedRankBonus < 0)
 				possessedRankBonus = 0;
+
+			if (possessedLevelBonus < 0)
+				possessedLevelBonus = 0;
 
 			if (possessedSpeedModifier <= 0)
 				possessedSpeedModifier = 100;
