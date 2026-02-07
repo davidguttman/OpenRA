@@ -254,6 +254,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		RankEliteCondition: rank-elite
+		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
@@ -321,6 +323,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		RankEliteCondition: rank-elite
+		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
@@ -393,6 +397,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		RankEliteCondition: rank-elite
+		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
@@ -701,6 +707,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		RankEliteCondition: rank-elite
+		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:
@@ -735,6 +743,8 @@
 		PossessedRankBonus: 1
 		RankBonusCondition: rank-veteran
 		RankBonusOptionId: possession-rank
+		RankEliteCondition: rank-elite
+		RankEliteMinBonus: 4
 		PossessedSpeedModifier: 110
 		SpeedModifierOptionId: possession-speed
 	ExternalCondition@POSSESSED:

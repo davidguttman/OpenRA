@@ -52,6 +52,12 @@ namespace OpenRA.Mods.Common.Traits
 		[Desc("Optional lobby option id that overrides PossessedRankBonus.")]
 		public readonly string RankBonusOptionId = null;
 
+		[Desc("Condition to grant when the possession rank bonus reaches the elite threshold.")]
+		public readonly string RankEliteCondition = null;
+
+		[Desc("Minimum possession rank bonus to grant RankEliteCondition.")]
+		public readonly int RankEliteMinBonus = 0;
+
 		[Desc("Speed modifier percentage to apply while possessed.")]
 		public readonly int PossessedSpeedModifier = 100;
 
@@ -74,6 +80,7 @@ namespace OpenRA.Mods.Common.Traits
 		readonly PossessableInfo info;
 		IHealth health;
 		readonly List<int> rankBonusTokens = new();
+		int eliteConditionToken = Actor.InvalidConditionToken;
 		ExternalCondition externalCondition;
 		int conditionToken = Actor.InvalidConditionToken;
 
@@ -186,17 +193,31 @@ namespace OpenRA.Mods.Common.Traits
 
 			for (var i = 0; i < possessedRankBonus; i++)
 				rankBonusTokens.Add(self.GrantCondition(info.RankBonusCondition));
+
+			if (!string.IsNullOrWhiteSpace(info.RankEliteCondition) && info.RankEliteMinBonus > 0
+				&& possessedRankBonus >= info.RankEliteMinBonus)
+			{
+				eliteConditionToken = self.GrantCondition(info.RankEliteCondition);
+			}
 		}
 
 		void ClearRankBonus()
 		{
 			if (rankBonusTokens.Count == 0)
+			{
+				if (eliteConditionToken != Actor.InvalidConditionToken)
+					eliteConditionToken = self.RevokeCondition(eliteConditionToken);
+
 				return;
+			}
 
 			foreach (var token in rankBonusTokens)
 				self.RevokeCondition(token);
 
 			rankBonusTokens.Clear();
+
+			if (eliteConditionToken != Actor.InvalidConditionToken)
+				eliteConditionToken = self.RevokeCondition(eliteConditionToken);
 		}
 
 		void LoadLobbyOptions(World world)
